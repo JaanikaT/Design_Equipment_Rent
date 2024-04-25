@@ -3,3 +3,4 @@ bin
 Properties
 .vs
 wwwroot/css/style.css
+./appsettings.json
