@@ -20,26 +20,31 @@ public class HomeController : Controller
     
     public IActionResult Equipment_categories()
     {
+        ViewData["title"] = "Seadmed";
         return View();
     }
 
-     public IActionResult Groups()
+    public IActionResult Categoryofequipments(string id) // equipment of chosen category
+    {
+        ViewData["title"] = "Seadmed";
+        ViewData["category"] = id;
+        return View();
+    }
+
+    public IActionResult Equipment()
+    {
+        ViewData["title"] = "Seadmed";
+        return View();
+    }
+
+    public IActionResult Groups()
     {
         return View();
     }
 
     public IActionResult QRscanner()
     {
-        return View();
-    }
-
-    public IActionResult Equipment()
-    {
-        return View();
-    }
-
-    public IActionResult Categoryofequipments()
-    {
+        ViewData["title"] = "Sk&auml;nner";
         return View();
     }
 

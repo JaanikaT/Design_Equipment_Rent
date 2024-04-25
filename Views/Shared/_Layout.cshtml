@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DesignEquipment</title>
+    <title>@(ViewData["title"] != null ? ViewData["title"] : "Laenutus")</title>
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 <body class="bg-[#F9F9F9]"> 
     <header class="flex w-full h-20 bg-[#1D4490]">
         <a href="/"><img src="~/assets/Real_ametikool.jpg" alt="logo" class="flex object-cover h-20 w-20"></a>
-        <p class="flex font-bold text-[30px] text-white m-auto">Laenutus</p>
+        <p class="flex font-bold text-[30px] text-white m-auto">@(ViewData["title"] == null ? "Laenutus" : ViewData["title"])</p>
         
     </header>
     <div class="container">
