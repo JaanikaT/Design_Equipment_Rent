@@ -12,6 +12,6 @@
     @apply py-2.5 px-5 gap-2.5 bg-[#1D4490] rounded-full text-white text-[20px] font-bold leading-5;
   }
   .category {
-    @apply w-fit py-2.5 px-5 gap-2.5 bg-[#1D4490] rounded-2xl text-white text-3xl font-bold leading-5 ;
+    @apply w-fit py-5 px-5 gap-2.5 bg-[#1D4490] rounded-2xl text-white text-3xl font-bold leading-5;
   }
 }
