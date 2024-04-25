@@ -5,3 +5,5 @@ Properties
 wwwroot/css/style.css
 appsettings.json
 connection
+.vscode
+.mono
