@@ -31,6 +31,12 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult AddEquipment()
+    {
+        ViewData["title"] = "Seadmed";
+        return View();
+    }
+
     public IActionResult Equipment()
     {
         ViewData["title"] = "Seadmed";

@@ -1,0 +1,30 @@
+﻿<div>
+	<div class="gap-12 my-10 w-full">
+		<a href="/home/Equipment_categories" class="btn ml-6">Tagasi</a>
+	</div>
+	
+	<h1 class="font-bold text-4xl text-[#454545] text-center">Lisa seade</h1>
+	<form method="post" class="text-[20px] mt-5 mx-auto w-max flex flex-col gap-4">
+		<div class="flex flex-col">
+			<label for="serialNumber">Seeria number:</label>
+			<input class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="serialNumber" name="category" />
+		</div>
+		<div class="flex flex-col">
+			<label for="barCode">Triipkoodi number:</label>
+			<input class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="barCode" name="category" />
+		</div>
+		<div class="flex flex-col">
+			<label for="category">Kategooria:</label>
+			<select class="border-2 border-solid border-gray-300 w-[300px]" name="category" id="category">
+				<option value="camera">Foto- ja videokaamerad</option>
+				<option value="optic">Optika</option>
+				<option value="flash">Välgud</option>
+				<option value="lighting">Valgustid</option>
+				<option value="audio">Audiotehnika</option>
+				<option value="bags">Kotid</option>
+				<option value="digitable">Digilauad</option>
+				<option value="computer">Arvutid</option>
+			</select>
+		</div>
+	</form>
+</div>
