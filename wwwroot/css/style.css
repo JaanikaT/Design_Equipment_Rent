@@ -646,6 +646,14 @@ video {
   margin: 2.5rem;
 }
 
+.m-20 {
+  margin: 5rem;
+}
+
+.m-9 {
+  margin: 2.25rem;
+}
+
 .mx-32 {
   margin-left: 8rem;
   margin-right: 8rem;
@@ -785,6 +793,10 @@ video {
   gap: 1.25rem;
 }
 
+.gap-\[10px\] {
+  gap: 10px;
+}
+
 .rounded-\[79px\] {
   border-radius: 79px;
 }
@@ -846,12 +858,21 @@ video {
   padding-right: 0.75rem;
 }
 
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .pb-3 {
   padding-bottom: 0.75rem;
 }
 
 .pl-10 {
   padding-left: 2.5rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-4xl {
