@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace DesignEquipment.Models
 {
@@ -11,12 +12,13 @@ namespace DesignEquipment.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL();
+            optionsBuilder.UseMySQL(File.ReadAllText("connection"));
             base.OnConfiguring(optionsBuilder);
         }
 
         public DbSet<Blacklist> Blacklist { get; set; }
         public DbSet<Equipment> Equipment { get; set; }
         public DbSet<Rent> Rent { get; set; }
+        public DbSet<Comments> Comments { get; set; }
     }
 }
