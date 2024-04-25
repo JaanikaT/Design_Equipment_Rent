@@ -9,5 +9,6 @@ namespace DesignEquipment.Models
         public string? Barcode { get; set; }
         public string? Name { get; set; }
         public string? Category { get; set; }
+        public DateTime AddedDate { get; set; }
     }
 }

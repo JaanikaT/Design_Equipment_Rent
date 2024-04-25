@@ -44,6 +44,7 @@ public class HomeController : Controller
     public IActionResult AddEquipmentPost()
     {
         var form = Request.Form;
+
         StringValues serialNumber = form["serialNumber"];
         StringValues barcode = form["barcode"];
         StringValues category = form["category"];
@@ -56,16 +57,18 @@ public class HomeController : Controller
             SerialNumber = serialNumber.ToString(),
             Barcode = barcode.ToString(),
             Name = name.ToString(),
-            Category = category.ToString()
+            Category = category.ToString(),
+            AddedDate = DateTime.Now
         };
         database.Equipment.Add(equipment);
-        if (string.IsNullOrEmpty(remark.ToString().Trim()))
+        if (!string.IsNullOrEmpty(remark.ToString().Trim()))
         {
             database.Comments.Add(new()
             {
                 Date = DateTime.Now,
                 Name = null,
-                Equipment = equipment
+                Equipment = equipment,
+                Comment = remark
             });
         }
         database.SaveChanges();
@@ -73,10 +76,22 @@ public class HomeController : Controller
         return RedirectToAction("Equipment_categories");
     }
 
-    public IActionResult Equipment()
+    public IActionResult Equipment(int id)
     {
-        ViewData["title"] = "Seadmed";
+        ViewData["title"] = "Seade";
+        ViewData["id"] = id;
         return View();
+    }
+
+    public IActionResult RemoveEquipment(int id)
+    {
+        DatabaseContext database = new();
+        Equipment equip = database.Equipment.Where(x => x.Id == id).First();
+        database.Equipment.Remove(equip);
+        database.Comments.RemoveRange(database.Comments.Where(x => x.Equipment == equip));
+        database.SaveChanges();
+
+        return Redirect("/home/Categoryofequipments/" + equip.Category);
     }
 
     public IActionResult Groups()

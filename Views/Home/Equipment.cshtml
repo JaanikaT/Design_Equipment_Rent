@@ -1,15 +1,24 @@
-﻿<div>
+﻿@{
+    DatabaseContext database = new();
+    Equipment equipment = database.Equipment.Where(x => x.Id == (int)ViewData["id"]!).First();
+}
+
+<div>
     <div class="p-5 bg-green-300">
-        <h1 class="flex-row text-3xl font-bold">Canon</h1>
-        <h1 class="flex-row text-2xl">(seerianr)</h1>
+        <h1 class="flex-row text-3xl font-bold">@equipment.Name</h1>
+        <h1 class="flex-row text-2xl">(@equipment.SerialNumber)</h1>
     </div>
     <div class="flex items-center justify-between items.items-center p-5">
         <h1 class="flex-col text-xl font-semibold">Seadme märkused:</h1>
-        <button class="flex items-center scale-90 btn">Lisa märkus</button>
+        <a  class="flex items-center scale-90 btn">Lisa märkus</a>
     </div>
     <div class="flex-col items-center p-5 ">
-        <h1>05.04 Katik puudu</h1>
-        <h1>12.04 Nupp kulunud</h1>
+        @{
+            foreach(var comment in database.Comments.Where(x => x.Equipment == equipment).OrderByDescending(x => x.Date))
+            {
+                <h1>@comment.Date.ToString("dd.MM.yyyy") @comment.Comment</h1>
+            }
+        }
     </div>
     <div class="flex-col items-center p-5 ">
         <h1 class="text-xl font-semibold">Seadme ajalugu:</h1>
@@ -18,15 +27,17 @@
         <h1>07.04-13.04 Renditud - TAK-23-Kaspar-kool</h1>
         <h1>13.04 Märkus - Nupp kulunud</h1>
     </div>
-    <div class="flex-col items-center p-5">
-        <h1 class="text-xl font-semibold">Seadme info:</h1>
-        <h1 class="mt-2">Seerianumber:</h1>
-        <h1 class="mt-2">Triipkoodi number:</h1>
-        <h1 class="mt-2">Lisamise aeg:</h1>
-        <h1 class="mt-2">Katekooria:</h1>
-    </div>
+    <div class="w-full flex justify-between items-end">
+        <div class="flex-col items-center p-5 w-[300px]">
+            <h1 class="text-xl font-semibold">Seadme info:</h1>
+            <h1 class="mt-2">Seerianumber: @equipment.SerialNumber</h1>
+            <h1 class="mt-2">Triipkoodi number: @equipment.Barcode</h1>
+            <h1 class="mt-2">Lisamise aeg: @equipment.AddedDate.ToString("dd.MM.yyyy")</h1>
+            <h1 class="mt-2">Katekooria: @equipment.Category</h1>
+        </div>
 
-    <div class="flex justify-center mt-10 mb-5 scale-90">
-        <button class="flex items-center btn">Eemalda seade</button>
+        <div class="flex w-full justify-end mt-3 mb-5 scale-90">
+            <a href="/home/RemoveEquipment/@equipment.Id" class="flex items-center btn h-max">Eemalda seade</a>
+        </div>
     </div>
 </div>
