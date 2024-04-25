@@ -3,6 +3,7 @@ using System;
 using DesignEquipment.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DesignEquipment.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240425181904_RemoveRemarkFromEquipment")]
+    partial class RemoveRemarkFromEquipment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,15 +50,15 @@ namespace DesignEquipment.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("EquipmentId")
+                    b.Property<int>("RentId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EquipmentId");
+                    b.HasIndex("RentId");
 
                     b.ToTable("Comments");
                 });
@@ -130,13 +133,13 @@ namespace DesignEquipment.Migrations
 
             modelBuilder.Entity("DesignEquipment.Models.Comments", b =>
                 {
-                    b.HasOne("DesignEquipment.Models.Equipment", "Equipment")
+                    b.HasOne("DesignEquipment.Models.Rent", "Rent")
                         .WithMany()
-                        .HasForeignKey("EquipmentId")
+                        .HasForeignKey("RentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Equipment");
+                    b.Navigation("Rent");
                 });
 
             modelBuilder.Entity("DesignEquipment.Models.Rent", b =>

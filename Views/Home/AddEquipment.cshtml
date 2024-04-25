@@ -6,13 +6,18 @@
 	<h1 class="font-bold text-4xl text-[#454545] text-center">Lisa seade</h1>
 	<form method="post" class="text-[20px] mt-5 mx-auto w-max flex flex-col gap-4">
 		<div class="flex flex-col">
-			<label for="serialNumber">Seeria number:</label>
-			<input class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="serialNumber" name="category" />
+			<label for="name">Nimetus:</label>
+			<input class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="name" name="name" />
 		</div>
 		<div class="flex flex-col">
-			<label for="barCode">Triipkoodi number:</label>
-			<input class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="barCode" name="category" />
+			<label for="serialNumber">Seeria number:</label>
+			<input class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="serialNumber" name="serialNumber" />
 		</div>
+		<div class="flex flex-col">
+			<label for="barcode">Triipkoodi number:</label>
+			<input class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="barcode" name="barcode" />
+		</div>
+
 		<div class="flex flex-col">
 			<label for="category">Kategooria:</label>
 			<select class="border-2 border-solid border-gray-300 w-[300px]" name="category" id="category">
@@ -26,5 +31,12 @@
 				<option value="computer">Arvutid</option>
 			</select>
 		</div>
+
+		<div class="flex flex-col">
+			<label for="remark">M&auml;rkused:</label>
+			<textarea class="border-2 border-solid border-gray-300 w-[300px]" type="text" id="remark" name="remark"></textarea>
+		</div>
+
+		<input class="btn mt-5" type="submit" value="Lisa"/>
 	</form>
 </div>

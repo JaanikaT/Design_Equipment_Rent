@@ -8,8 +8,6 @@ namespace DesignEquipment.Models
         public string? SerialNumber { get; set; }
         public string? Barcode { get; set; }
         public string? Name { get; set; }
-        public int MyProperty { get; set; }
-        public string? Remark { get; set; }
         public string? Category { get; set; }
     }
 }

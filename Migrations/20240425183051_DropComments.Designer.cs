@@ -3,6 +3,7 @@ using System;
 using DesignEquipment.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DesignEquipment.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240425183051_DropComments")]
+    partial class DropComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,28 +39,6 @@ namespace DesignEquipment.Migrations
                     b.HasIndex("RentId");
 
                     b.ToTable("Blacklist");
-                });
-
-            modelBuilder.Entity("DesignEquipment.Models.Comments", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("EquipmentId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EquipmentId");
-
-                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("DesignEquipment.Models.Equipment", b =>
@@ -126,17 +107,6 @@ namespace DesignEquipment.Migrations
                         .IsRequired();
 
                     b.Navigation("Rent");
-                });
-
-            modelBuilder.Entity("DesignEquipment.Models.Comments", b =>
-                {
-                    b.HasOne("DesignEquipment.Models.Equipment", "Equipment")
-                        .WithMany()
-                        .HasForeignKey("EquipmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Equipment");
                 });
 
             modelBuilder.Entity("DesignEquipment.Models.Rent", b =>

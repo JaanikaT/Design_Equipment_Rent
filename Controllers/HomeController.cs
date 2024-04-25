@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DesignEquipment.Models;
+using Microsoft.Extensions.Primitives;
 
 namespace DesignEquipment.Controllers;
 
@@ -31,10 +32,43 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet]
     public IActionResult AddEquipment()
     {
         ViewData["title"] = "Seadmed";
         return View();
+    }
+
+    [ActionName("AddEquipment")]
+    [HttpPost]
+    public IActionResult AddEquipmentPost()
+    {
+        var form = Request.Form;
+        StringValues serialNumber = form["serialNumber"];
+        StringValues barcode = form["barcode"];
+        StringValues category = form["category"];
+        StringValues remark = form["remark"];
+        StringValues name = form["name"];
+
+        DatabaseContext database = new();
+        database.Equipment.Add(new()
+        {
+            SerialNumber = serialNumber.ToString(),
+            Barcode = barcode.ToString(),
+            Name = name.ToString(),
+            Category = category.ToString()
+        });
+        if (string.IsNullOrEmpty(remark.ToString().Trim()))
+        {
+            database.Comments.Add(new()
+            {
+                Date = DateTime.Now,
+
+            });
+        }
+        database.SaveChanges();
+
+        return RedirectToAction("Equipment_categories");
     }
 
     public IActionResult Equipment()
