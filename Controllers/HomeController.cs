@@ -51,19 +51,21 @@ public class HomeController : Controller
         StringValues name = form["name"];
 
         DatabaseContext database = new();
-        database.Equipment.Add(new()
+        Equipment equipment = new()
         {
             SerialNumber = serialNumber.ToString(),
             Barcode = barcode.ToString(),
             Name = name.ToString(),
             Category = category.ToString()
-        });
+        };
+        database.Equipment.Add(equipment);
         if (string.IsNullOrEmpty(remark.ToString().Trim()))
         {
             database.Comments.Add(new()
             {
                 Date = DateTime.Now,
-
+                Name = null,
+                Equipment = equipment
             });
         }
         database.SaveChanges();
