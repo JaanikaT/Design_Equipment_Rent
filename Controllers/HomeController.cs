@@ -17,8 +17,13 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    public IActionResult Equipment_categories()
+    {
+        return View();
+    }
 
-    public IActionResult Privacy()
+     public IActionResult Groups()
     {
         return View();
     }
