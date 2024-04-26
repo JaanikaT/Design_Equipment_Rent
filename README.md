@@ -1,4 +1,4 @@
-## Welcome to the Design_Equipment_Rent wiki!
+## Welcome to the Design_Equipment_Rent Readme.md!
 
 Here is an overview of our project.
 
