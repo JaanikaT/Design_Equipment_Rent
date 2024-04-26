@@ -14,9 +14,30 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [HttpGet]
     public IActionResult Index()
     {
         return View();
+    }
+
+    [ActionName("Index")]
+    [HttpPost]
+    public IActionResult IndexPost()
+    {
+        var form = Request.Form;
+        DatabaseContext database = new();
+        StringValues name = form["name"];
+        StringValues email = form["email"];
+        StringValues group = form["group"];
+        database.Person.Add(new()
+        {
+            Name = name,
+            Email = email,
+            Group = group
+        });
+        database.SaveChanges();
+
+        return Redirect("/");
     }
     
     public IActionResult Equipment_categories()

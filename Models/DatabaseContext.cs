@@ -20,5 +20,6 @@ namespace DesignEquipment.Models
         public DbSet<Equipment> Equipment { get; set; }
         public DbSet<Rent> Rent { get; set; }
         public DbSet<Comments> Comments { get; set; }
+        public DbSet<Person> Person { get; set; }
     }
 }
