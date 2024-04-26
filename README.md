@@ -5,7 +5,7 @@ Here is an overview of our project.
 ### Project team:
 
 Anree Salumäe - Design, Figma  
-Kert Mänd - Back-end, ASP.NET MVC
+Kert Mänd - Back-end, ASP.NET MVC  
 Andre Leppik - Design, Figma  
 Kaspar Truu - Design, Figma  
 Jaanika Teearu - Documentation
