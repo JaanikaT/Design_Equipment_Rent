@@ -26,8 +26,10 @@ Then we analyzed the task, with the help from Aliin and Jan, and decided to use 
 
 
 #### First draft (pic)
+<img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/b41f9693-d0ac-4dd4-9fb6-f12943a88174" width="500px">
 
 #### Details (pic)
+<img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/a70df1eb-46fa-4678-bbc0-da103451a9fa" width="500px">
 
 We decided for two sides - rental side (with students list) and equipment side for equipment overview. And searchbar to search for particular student or equipment.  
 Andre and Kaspar started the design in Figma. The landing page of the app was quite bare and simple for user.  
@@ -39,6 +41,11 @@ Lastly did some design and workflow schemes.
 We got some feedback for our thoughts. We had to reconsider our simple landing page, because user most probably would like to see the item list which rent is overdue. And then choose if to go in rental side or equipment side. 
 
 Newer design layout scheme.
+
+<img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/fa2519ff-8ba3-4e13-a833-036795bcb437" width="500px">
+
+
+<img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/14bf867d-6d5d-4b54-8685-f06425dbeffb" width="500px">
 
  
 ### 25.04 - Day 2
