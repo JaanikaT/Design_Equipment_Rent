@@ -40,14 +40,20 @@
     <div class="mt-10 md:mt-24 md:mb-20">
         
 
-        <form method="post" class="md:flex md:justify-center">
-            <input type="date" name="date" class="w-full bg-[#D9D9D9] h-10 md:scale-125 px-3" />
-            <input type="text" name="reason" class="w-full bg-[#D9D9D9] h-10 md:scale-125 px-3" />
+        <form method="post" class="md:flex md:justify-center flex-col w-full items-center gap-4">
+            <div class="md:w-60">
+                <label class="md:mb-20" for="date">Tagastus</label>
+                <input type="date" name="date" id="date" class="w-full bg-[#D9D9D9] h-10 md:scale-125 px-3 mb-2" />
+            </div>
+            <div class="md:w-60">
+                <label for="reason">P&otilde;hjus</label>
+                <input type="text" name="reason" id="reason" class="w-full bg-[#D9D9D9] h-10 md:scale-125 px-3" />
+            </div>
             <h1 class="text-2xl mt-5 font-bold flex justify-center">Lisa Käsitsi</h1>
             <div class="mt-6 md:mt-7 md:w-96 flex gap-10 flex-col">
                 @* input type="text" class="w-full bg-[#D9D9D9] h-10 md:scale-125 px-3" placeholder="Lisa seade.."> *@
                 
-                <select class="w-full bg-[#D9D9D9] h-10 md:scale-125 px-3" name="id">
+                <select class="w-full bg-[#D9D9D9] h-10 px-3" name="id">
                     @{
                         foreach(var item in database.Equipment)
                         {

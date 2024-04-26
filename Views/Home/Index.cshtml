@@ -30,7 +30,6 @@
 			foreach(var item in items)
 			{
 				bool expired = DateTime.Now > item.EndDate;
-				Console.WriteLine($"now: {DateTime.Now}, end: {item.EndDate}, expired: {expired}");
 
 				<tr class="@(expired ? "bg-red-300" : "bg-[#E9E9E9]")">
 					<td>@item.User</td>
