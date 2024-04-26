@@ -1,12 +1,12 @@
 ﻿<div class="flex flex-col">
-    <div class="flex justify-center gap-12 my-10 mx-32">
+    <div class="flex justify-center gap-12 mx-32 my-10">
         <a href="/" class="btn">Tagasi</a>
         <a href="/home/addequipment" class="btn">Lisa</a>
     </div>
     <div class="flex mx-auto my-10">
         <p class="flex justify-center font-bold text-4xl text-[#454545]">Kategooriad</p>
     </div>
-    <div class="flex flex-col mx-auto gap-5">
+    <div class="flex flex-col gap-5 mx-auto text-center">
         @{
             DatabaseContext database = new();
             foreach(var category in database.Equipment.Select(x => x.Category).Distinct())
