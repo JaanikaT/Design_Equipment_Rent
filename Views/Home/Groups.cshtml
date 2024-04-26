@@ -1,15 +1,18 @@
 <div class="flex flex-col">
     <div class="flex justify-center gap-12 my-10 mx-32">
-        <a href=""><button class="btn">Tagasi</button></a>
-        <a href=""><button class="btn">Laenutus</button></a>
+        <a href="" class="btn">Tagasi</button></a>
+        <a href="" class="btn">Laenutus</button></a>
     </div>
     <div class="flex mx-auto my-10">
         <p class="flex justify-center font-bold text-4xl text-[#454545]">Rühmad</p>
     </div>
     <div class="flex flex-col mx-auto gap-5">
-        <a href=""><button class="category w-[290px]">K-22</button></a>
-        <a href=""><button class="category w-[290px]">KGP-21</button></a>
-        <a href=""><button class="category w-[290px]">KGP-23</button></a>
-        <a href=""><button class="category w-[290px]">KKG-22</button></a>
+        @{
+            DatabaseContext database = new();
+            foreach(var group in database.Person.Select(x => x.Group).Distinct())
+            {
+                <a href="/" class="category w-[290px]">@group</a>
+            }
+        }
     </div>
 </div>
