@@ -14,7 +14,7 @@
         DatabaseContext query = new();
         foreach (var equipment in database.Equipment.Where(x => x.Category!.Equals(ViewData["category"])))
         {
-            <a href="/home/equipment/@equipment.Id" class="px-3 py-2 @(query.Rent.Any(x => x.EquipmentId == equipment.Id) ? "bg-yellow-200" : "bg-green-300")">@equipment.Name</a>
+            <a href="/home/equipment/@equipment.Id" class="px-3 py-2 @(query.Rent.Any(x => x.EquipmentId == equipment.Id) ? (query.Rent.Where(x => x.EquipmentId == equipment.Id).First().EndDate < DateTime.Now ? "bg-red-300" : "bg-yellow-200") : "bg-green-300")">@equipment.Name</a>
         }
     }
 </div>

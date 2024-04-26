@@ -17,19 +17,24 @@
 				{
 					User = b.Name,
 					EquipmentId = a.EquipmentId,
-					Date = a.EndDate
+					EndDate = a.EndDate,
+					StartDate = a.StartDate
 				})
 				.Join(database.Equipment, a => a.EquipmentId, b => b.Id, (a, b) => new
 				{
 					a.User,
 					Equipment = b.Name,
-					a.Date
+					a.EndDate,
+					a.StartDate
 				});
 			foreach(var item in items)
 			{
-				<tr class="bg-[#E9E9E9]">
+				bool expired = DateTime.Now > item.EndDate;
+				Console.WriteLine($"now: {DateTime.Now}, end: {item.EndDate}, expired: {expired}");
+
+				<tr class="@(expired ? "bg-red-300" : "bg-[#E9E9E9]")">
 					<td>@item.User</td>
-					<td>@(item.Date.ToString("dd-MM-yyyy"))</td>
+					<td>@(item.EndDate.ToString("dd-MM-yyyy"))</td>
 					<td>@item.Equipment</td>
 				</tr>
 			}
