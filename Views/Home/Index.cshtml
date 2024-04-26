@@ -10,10 +10,29 @@
 			<td>Tagastus</td>
 			<td>Seade</td>
 		</tr>
-		<tr class="bg-[#E9E9E9]">
-			<td>Kaspar</td>
-			<td>04.25.2024</td>
-			<td>Kaamera</td>
-		</tr>
+		@{
+			DatabaseContext database = new();
+			var items = database.Rent
+				.Join(database.Person, a => a.PersonId, b => b.Id, (a, b) => new
+				{
+					User = b.Name,
+					EquipmentId = a.EquipmentId,
+					Date = a.EndDate
+				})
+				.Join(database.Equipment, a => a.EquipmentId, b => b.Id, (a, b) => new
+				{
+					a.User,
+					Equipment = b.Name,
+					a.Date
+				});
+			foreach(var item in items)
+			{
+				<tr class="bg-[#E9E9E9]">
+					<td>@item.User</td>
+					<td>@(item.Date.ToString("dd-MM-yyyy"))</td>
+					<td>@item.Equipment</td>
+				</tr>
+			}
+		}
 	</table>
 </div>
