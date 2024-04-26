@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DesignEquipment.Models;
 using Microsoft.Extensions.Primitives;
+using System.Globalization;
 
 namespace DesignEquipment.Controllers;
 
@@ -126,10 +127,10 @@ public class HomeController : Controller
         return View();
     }
     [HttpGet]
-    public IActionResult QRscanner(string id)
+    public IActionResult QRscanner(int id)
     {
         ViewData["title"] = "Laenuta";
-        ViewData["name"] = id;
+        ViewData["uid"] = id;
         return View();
     }
     [HttpPost]
@@ -139,14 +140,23 @@ public class HomeController : Controller
         ViewData["title"] = "Laenuta";
         var form = Request.Form;
 
+        StringValues uid = form["user"];
         StringValues id = form["id"];
+        StringValues date = form["date"];
+        StringValues reason = form["reason"];
         DatabaseContext database = new();
         database.Rent.Add(new()
         {
+            EndDate = DateTime.ParseExact(date.ToString(), "yyyy-MM-dd", CultureInfo.InvariantCulture),
+            StartDate = DateTime.Now,
+            Reason = reason,
+            Expired = false,
+            EquipmentId = Convert.ToInt32(id),
+            PersonId = Convert.ToInt32(uid)
         });
         database.SaveChanges();
 
-        return Redirect("/home/qrscanner");
+        return Redirect($"/home/qrscanner/{uid}");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
