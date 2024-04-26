@@ -58,7 +58,9 @@ Kert set up ASP.NET and helped everyone to install dotnet, teached how to run it
 Finished design, tomorrow will do back-end and database part. 
 
 ### 26.04 - Day 3, Final Day
-
+Finalized the desktop view on all web pages.
+<br>Added the QR scanner into the application.
+<br>Fixing minor issues involving the application.
 
 
 
