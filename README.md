@@ -44,6 +44,9 @@ Newer design layout scheme.
 
 <img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/fa2519ff-8ba3-4e13-a833-036795bcb437" width="500px">
 
+
+<img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/14bf867d-6d5d-4b54-8685-f06425dbeffb" width="500px">
+
  
 ### 25.04 - Day 2
 Documentation  
