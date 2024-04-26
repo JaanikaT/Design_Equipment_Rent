@@ -125,11 +125,28 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    public IActionResult QRscanner()
+    [HttpGet]
+    public IActionResult QRscanner(string id)
     {
-        ViewData["title"] = "Sk&auml;nner";
+        ViewData["title"] = "Laenuta";
+        ViewData["name"] = id;
         return View();
+    }
+    [HttpPost]
+    [ActionName("QRscanner")]
+    public IActionResult QRscannerPost()
+    {
+        ViewData["title"] = "Laenuta";
+        var form = Request.Form;
+
+        StringValues id = form["id"];
+        DatabaseContext database = new();
+        database.Rent.Add(new()
+        {
+        });
+        database.SaveChanges();
+
+        return Redirect("/home/qrscanner");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
