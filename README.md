@@ -67,7 +67,6 @@ Finalized the desktop view on all web pages.
 ## Pictures
 <img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/a70df1eb-46fa-4678-bbc0-da103451a9fa" width="500px">
 <img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/b41f9693-d0ac-4dd4-9fb6-f12943a88174" width="500px">
-![20240425_083841054_iOS 1](https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/9b20b6ef-f971-4253-a9f2-5b6e72ed9b17)
 
 <img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/fa2519ff-8ba3-4e13-a833-036795bcb437" width="500px">
 <img src="https://github.com/JaanikaT/Design_Equipment_Rent/assets/88343009/14bf867d-6d5d-4b54-8685-f06425dbeffb" width="500px">
