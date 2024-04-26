@@ -39,6 +39,12 @@ public class HomeController : Controller
 
         return Redirect("/");
     }
+
+    public IActionResult Students(string id)
+    {
+        ViewData["title"] = id;
+        return View();
+    }
     
     public IActionResult Equipment_categories()
     {
@@ -115,7 +121,7 @@ public class HomeController : Controller
         return Redirect("/home/Categoryofequipments/" + equip.Category);
     }
 
-    public IActionResult Groups()
+    public IActionResult Groups(string id)
     {
         return View();
     }

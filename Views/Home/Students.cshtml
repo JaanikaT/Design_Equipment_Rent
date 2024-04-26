@@ -1,0 +1,25 @@
+﻿<div>
+    <div class="flex justify-center gap-12 my-10 mx-32">
+        <a href="/home/groups" class="btn">Tagasi</a>
+    </div>
+
+    <div class="text-xl text-left m-9 flex flex-col items-center mx-auto gap-[10px]">
+        @{
+            DatabaseContext database = new();
+            foreach(var student in database.Person.Where(x => x.Group == (string)ViewData["title"]!))
+            {
+                <div class="w-[80%] border-2 border-solid border-gray-300 px-3 flex justify-between items-center py-1">
+                    <a class="">@student.Name</a>
+                    <div class="h-full flex gap-2">
+                        <div class="bg-[#1D4490] w-[30px] h-[30px] flex justify-center items-center">
+                            <a class="text-white">+</a>
+                        </div>
+                        <div class="bg-[#1D4490] w-[30px] h-[30px] flex justify-center items-center">
+                            <a class="text-white">-</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
